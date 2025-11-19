@@ -1,9 +1,5 @@
 from flask import Flask, render_template, request, redirect
 from db import db, Reminder
-from email_sender import send_due_reminders
-import schedule
-import time
-import threading
 
 app = Flask(__name__)
 
@@ -56,16 +52,11 @@ def success():
     return render_template("success.html")
 
 
-# SHOW REMINDERS (User-specific)
+# SHOW REMINDERS
 @app.route("/reminders")
 def reminders():
-    email = request.args.get("email")  # get email from form
-
-    if email:
-        reminders = Reminder.query.filter_by(email=email).all()
-    else:
-        reminders = None
-
+    email = request.args.get("email")
+    reminders = Reminder.query.filter_by(email=email).all() if email else None
     return render_template("reminders.html", reminders=reminders)
 
 
@@ -84,16 +75,5 @@ def about():
     return render_template("about.html")
 
 
-# EMAIL SCHEDULER
-def run_scheduler():
-    with app.app_context():
-        schedule.every(1).minutes.do(send_due_reminders)
-
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
-
-
 if __name__ == "__main__":
-    threading.Thread(target=run_scheduler).start()
     app.run(debug=True)
