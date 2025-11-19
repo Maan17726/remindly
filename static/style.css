@@ -1,0 +1,437 @@
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: #F7F8FC;
+    color: #1F1F1F;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 40px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    background: linear-gradient(45deg, #6C63FF, #00E0C7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #6C63FF;
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    background: linear-gradient(45deg, #6C63FF, #4F8CFF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fadeUp 0.8s ease-out;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-top: 10px;
+    animation: fadeUp 1s ease-out;
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(45deg, #6C63FF, #00E0C7);
+    text-decoration: none;
+    transition: 0.25s;
+    animation: fadeUp 1.2s ease-out;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* CREATE PAGE LAYOUT */
+.create-container {
+    display: flex;
+    height: calc(100vh - 80px);
+    animation: fadeUp 0.8s ease-out;
+}
+
+/* LEFT SIDE (FORM) */
+.form-side {
+    width: 50%;
+    padding: 70px;
+}
+
+.form-side h1 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #6C63FF, #4F8CFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.form-desc {
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.reminder-form .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group input,
+.input-group textarea {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: 0.25s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #6C63FF;
+    transform: scale(1.02);
+}
+
+/* SPLIT SMALL INPUTS */
+.dual-input {
+    display: flex;
+    gap: 15px;
+}
+
+/* RIGHT SIDE (DESIGN) */
+.design-side {
+    width: 50%;
+    position: relative;
+    background: linear-gradient(180deg, #6C63FF, #4F8CFF, #00E0C7);
+    color: white;
+    padding: 70px 50px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.design-side h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.design-side p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.side-img {
+    width: 240px;
+    margin: 40px auto 0;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    animation: float 3s infinite ease-in-out;
+}
+
+/* FLOATING IMAGE ANIMATION */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+/* REMINDERS PAGE */
+.reminders-section {
+    padding: 60px 40px;
+    animation: fadeUp 0.8s ease-out;
+}
+
+.reminders-section h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #6C63FF, #00E0C7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.reminder-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.reminder-card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.35s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.reminder-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+.reminder-card h2 {
+    margin: 0;
+}
+
+.email {
+    font-size: 14px;
+    color: #777;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+}
+
+.message {
+    margin-top: 8px;
+    color: #444;
+}
+
+.status {
+    margin-top: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    width: fit-content;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.status.sent {
+    background: rgba(0, 209, 140, 0.15);
+    color: #00C98A;
+}
+
+.status.pending {
+    background: rgba(255, 193, 7, 0.2);
+    color: #E9A600;
+}
+
+.card-actions {
+    margin-top: 10px;
+}
+
+.delete-btn {
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #ff5252;
+    transition: 0.25s;
+}
+
+.delete-btn:hover {
+    background: #ff2c2c;
+}
+
+
+/* SUCCESS PAGE */
+.success-section {
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px;
+    animation: fadeUp 0.8s ease-out;
+}
+
+.success-box {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    width: 500px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    animation: fadeUp 1s ease-out;
+}
+
+.success-icon {
+    width: 120px;
+    margin-bottom: 20px;
+    animation: pop 0.6s ease-out;
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.success-box h1 {
+    background: linear-gradient(45deg, #6C63FF, #00E0C7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.success-box p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.success-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-secondary {
+    padding: 14px 30px;
+    background: #eee;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn-secondary:hover {
+    background: #ddd;
+}
+
+
+/* ABOUT PAGE */
+.about-section {
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px;
+    animation: fadeUp 0.8s ease-out;
+}
+
+.about-card {
+    max-width: 850px;
+    background: white;
+    padding: 60px;
+    border-radius: 22px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.12);
+    animation: fadeUp 1s ease-out;
+}
+
+.about-card h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #6C63FF, #00E0C7);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.about-card h2 {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.about-card p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* EMAIL SEARCH FORM */
+.email-search {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    animation: fadeUp 0.7s ease-out;
+}
+
+/* Email input styling */
+.email-search input {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+
+.email-search input:focus {
+    border-color: #6C63FF;
+    transform: scale(1.03);
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.3);
+}
+
+/* Button inherits .btn-primary but reduced padding */
+.email-search .btn-primary {
+    padding: 14px 22px;
+    border-radius: 10px;
+}
+
+/* For small screens */
+@media (max-width: 600px) {
+    .email-search {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .email-search .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}

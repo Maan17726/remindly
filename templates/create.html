@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Reminder – Remindly</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVVWZM21BP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VVVWZM21BP');
+    </script>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h2 class="logo">Remindly</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/create" class="active">Create Reminder</a></li>
+            <li><a href="/reminders">My Reminders</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="create-container">
+
+        <!-- FORM SIDE -->
+        <div class="form-side">
+            <h1>Create a Reminder</h1>
+            <p class="form-desc">Set the time, message, and email — we’ll deliver it right on schedule.</p>
+
+            <form action="/create" method="POST" class="reminder-form">
+
+                <div class="input-group">
+                    <label>Title</label>
+                    <input type="text" name="title" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="dual-input">
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" name="date" lang="en" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Time</label>
+                        <input type="time" name="time" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="4" required></textarea>
+                </div>
+
+                <button class="btn-primary">Save Reminder</button>
+
+            </form>
+        </div>
+
+        <!-- DESIGN SIDE -->
+        <div class="design-side">
+            <div class="design-gradient"></div>
+
+            <h2>Email Reminder</h2>
+            <p>We’ll send your reminder straight to your inbox — right on time.</p>
+
+            <img src="https://cdn-icons-png.flaticon.com/512/4207/4207240.png" class="side-img">
+        </div>
+
+    </div>
+
+</body>
+</html>

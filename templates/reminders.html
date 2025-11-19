@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reminders – Remindly</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VVVWZM21BP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VVVWZM21BP');
+    </script>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <h2 class="logo">Remindly</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/create">Create Reminder</a></li>
+            <li><a href="/reminders" class="active">My Reminders</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="reminders-section">
+        <h1>Your Reminders</h1>
+
+        <!-- EMAIL INPUT FORM -->
+        <form action="/reminders" method="GET" class="email-search">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button class="btn-primary">Show My Reminders</button>
+        </form>
+
+        <div class="reminder-list">
+
+            {% if reminders is not none %}
+                {% if reminders|length > 0 %}
+                    {% for r in reminders %}
+                    <div class="reminder-card">
+                        <h2>{{ r.title }}</h2>
+
+                        <p class="email">To: {{ r.email }}</p>
+                        <p class="date">{{ r.date }} at {{ r.time }}</p>
+
+                        <p class="message">{{ r.message }}</p>
+
+                        <span class="status 
+                            {% if r.status == 'Sent' %} sent 
+                            {% else %} pending 
+                            {% endif %}
+                        ">{{ r.status }}</span>
+
+                        <div class="card-actions">
+                            <a href="/delete/{{ r.id }}" class="delete-btn">Delete</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-data">No reminders found for this email.</p>
+                {% endif %}
+            {% endif %}
+
+        </div>
+    </section>
+
+</body>
+</html>
