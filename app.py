@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request, redirect
 from db import db, Reminder
+from email_sender import send_due_reminders
+import schedule
+import time
+import threading
+import os
 
 app = Flask(__name__)
 
@@ -75,5 +80,18 @@ def about():
     return render_template("about.html")
 
 
+# BACKGROUND EMAIL SENDER
+def run_scheduler():
+    with app.app_context():
+        schedule.every(1).minutes.do(send_due_reminders)
+
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+
+
+# START APP
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Start scheduler thread on Render only
+    threading.Thread(target=run_scheduler, daemon=True).start()
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
